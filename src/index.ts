@@ -28,11 +28,6 @@ export default {
 	): Promise<Response> {
 		const url = new URL(request.url);
 
-		// Handle static assets (frontend)
-		if (url.pathname === "/" || !url.pathname.startsWith("/api/")) {
-			return env.ASSETS.fetch(request);
-		}
-
 		// API Routes
 		if (url.pathname === "/api/chat") {
 			// Handle POST requests for chat
